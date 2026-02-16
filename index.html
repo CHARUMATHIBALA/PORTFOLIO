@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>CHARUMATHI B| Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="leaves"></div>
-
-
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -49,11 +47,16 @@
                     <a href="#contact" class="nav-link">Contact</a>
                 </li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -115,7 +118,7 @@
                     <h3>B.Tech Information Technology</h3>
                     <p class="education-institution">Kongu Engineering College, Perundurai</p>
                     <p class="education-duration">2023 - 2027</p>
-                    <p class="education-cgpa">CGPA: 8.04</p>
+                    <p class="education-cgpa">CGPA: 8.14</p>
                 </div>
     
                 <div class="education-item fade-in-delay-2">
@@ -189,6 +192,29 @@
                         </div>
                     </div>
                 </div>
+                <div class="project-card fade-in-delay-2">
+    <div class="project-image">
+        <i class="fas fa-wallet"></i>
+    </div>
+    <div class="project-content">
+        <h3>Expense Manager</h3>
+        <p>A personal finance management system to track daily expenses, manage budgets, and generate reports using Python, Flask, and SQLite.</p>
+        
+        <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Flask</span>
+            <span class="tech-tag">SQLite</span>
+            <span class="tech-tag">HTML/CSS</span>
+        </div>
+        
+        <div class="project-links">
+            <a href="https://github.com/CHARUMATHIBALA/EXPENSE-MANAGER--PYTHON.git" class="project-link">
+                <i class="fab fa-github"></i> Code
+            </a>
+        </div>
+    </div>
+</div>
+
             
           
 
@@ -212,6 +238,31 @@
                         </div>
                     </div>
                 </div>
+                <div class="project-card fade-in-delay">
+    <div class="project-image">
+        <i class="fas fa-brain"></i>
+    </div>
+    
+    <div class="project-content">
+        <h3>Memory Flip Game</h3>
+        
+        <p>An interactive memory matching game where players flip cards to find pairs, featuring a timer, score tracking, and engaging animations.</p>
+        
+        <div class="project-tech">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+        </div>
+        
+        <div class="project-links">
+            <button class="btn btn-primary memory-open" data-memory-src="game2.html">
+                <i class="fas fa-play"></i> Play
+            </button>
+        </div>
+    </div>
+</div>
+
+                
 
                 <div class="project-card fade-in-delay">
                     <div class="project-image">
@@ -253,7 +304,7 @@
                     </div>
                     <h3>MongoDB Associate Developer</h3>
                     <p>Achieved global certification in MongoDB fundamentals, CRUD operations, indexing, and aggregation framework</p>
-                    <span class="certification-date">2025</span>
+                    <span class="certification-date">May 2025</span>
                     <div class="certification-actions">
                         <button class="btn btn-secondary btn-ghost view-cert" data-cert="2.png" data-title="MongoDB Associate Developer Certificate">View Certificate</button>
                     </div>
@@ -265,11 +316,68 @@
                     </div>
                     <h3>Oracle APEX Cloud Developer</h3>
                     <p>Global certification in Oracle APEX cloud development, including low-code application design and deployment</p>
-                    <span class="certification-date">2025</span>
+                    <span class="certification-date">May 2025</span>
                     <div class="certification-actions">
                         <button class="btn btn-secondary btn-ghost view-cert" data-cert="3.png" data-title="Oracle APEX Cloud Developer Certificate">View Certificate</button>
                     </div>
                 </div>
+                 <div class="certification-item fade-in-delay-2">
+    <div class="certification-icon">
+        <i class="fas fa-code-branch"></i>
+    </div>
+    <h3>Git Foundation</h3>
+    <p>Certification covering Git version control fundamentals, including repository management, branching, merging, and collaborative development workflows.</p>
+    <span class="certification-date">Apr 2025</span>
+    <div class="certification-actions">
+        <button class="btn btn-secondary btn-ghost view-cert" 
+                data-cert="4.jpg" 
+                data-title="Git Foundation Certificate">
+            View Certificate
+        </button>
+    </div>
+</div>
+<div class="certification-item fade-in-delay-2">
+    <div class="certification-icon">
+        <i class="fas fa-shield-alt"></i>
+    </div>
+
+    <h3>Privacy and Security in Online Social Media</h3>
+
+    <p>NPTEL Elite certification covering concepts of online privacy, data protection, cybersecurity risks, and secure social media practices.</p>
+
+    <span class="certification-date">Jan – Apr 2025</span>
+
+    <div class="certification-actions">
+        <button class="btn btn-secondary btn-ghost view-cert"
+                data-cert="5.png"
+                data-title="NPTEL Privacy and Security Certificate">
+            View Certificate
+        </button>
+    </div>
+</div>
+<div class="certification-item fade-in-delay-3">
+    <div class="certification-icon">
+        <i class="fas fa-network-wired"></i>
+    </div>
+
+    <h3>Demystifying Networking</h3>
+
+    <p>NPTEL certification covering computer networking fundamentals, protocols, internet architecture, and communication technologies.</p>
+
+    <span class="certification-date">Jul – Aug 2025</span>
+
+    <div class="certification-actions">
+        <button class="btn btn-secondary btn-ghost view-cert"
+                data-cert="networking.png"
+                data-title="NPTEL Demystifying Networking Certificate">
+            View Certificate
+        </button>
+    </div>
+</div>
+
+
+
+                
     
             </div>
         </div>
@@ -389,6 +497,24 @@
         <div class="container">
           <h2 class="section-title fade-in">Papers Presented</h2>
           <div class="presentations-grid">
+            <div class="presentation-item fade-in-delay-3">
+  <div class="presentation-icon">
+    <i class="fas fa-cloud"></i>
+  </div>
+  <div class="presentation-content">
+    <div class="presentation-header">
+      <h3>Cloud Computing</h3>
+      <span class="presentation-meta">Kalaignar Karunanidhi Institute of Technology, 2023</span>
+    </div>
+    <p>Cloud computing enables on-demand access to computing resources such as storage, servers, and applications over the internet, improving scalability, flexibility, and cost efficiency for businesses and individuals.</p>
+    <div class="presentation-tags">
+      <span class="tag">Cloud</span>
+      <span class="tag">Storage</span>
+      <span class="tag">Virtualization</span>
+    </div>
+  </div>
+</div>
+
 
             <div class="presentation-item fade-in-delay">
               <div class="presentation-icon">
@@ -425,6 +551,7 @@
                 </div>
               </div>
             </div>
+            
 
           </div>
         </div>
@@ -433,91 +560,147 @@
     
 
     <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title fade-in">Technical Skills</h2>
-            <div class="skills-content">
-    
-                <!-- Programming Languages -->
-                <div class="skills-category fade-in-delay">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-bars">
-                        
+  <section id="skills" class="skills">
+    <div class="container">
+
+        <h2 class="section-title fade-in">Technical Skills</h2>
+
+        <div class="skills-content">
+
+            <!-- Programming Languages -->
+            <div class="skills-category fade-in-delay">
+                <h3>Programming Languages</h3>
+
+                <div class="skill-bars">
+
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <div class="skill-name">
+                                <i class="fab fa-cuttlefish skill-logo"></i>
+                                <span>C / C++</span>
+                            </div>
+                            <span class="skill-percentage">70%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-info">
+                        <div class="skill-progress">
+                            <div class="skill-fill" data-width="70"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <div class="skill-name">
+                                <i class="fab fa-java skill-logo"></i>
                                 <span>Java</span>
-                                <span>75%</span>
                             </div>
-                            <div class="skill-progress">
-                                <div class="skill-fill" data-width="75"></div>
-                            </div>
+                            <span class="skill-percentage">75%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-info">
+                        <div class="skill-progress">
+                            <div class="skill-fill" data-width="75"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <div class="skill-name">
+                                <i class="fab fa-python skill-logo"></i>
                                 <span>Python</span>
-                                <span>80%</span>
                             </div>
-                            <div class="skill-progress">
-                                <div class="skill-fill" data-width="80"></div>
-                            </div>
+                            <span class="skill-percentage">80%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-info">
+                        <div class="skill-progress">
+                            <div class="skill-fill" data-width="80"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <div class="skill-name">
+                                <i class="fab fa-js-square skill-logo"></i>
                                 <span>JavaScript</span>
-                                <span>75%</span>
                             </div>
-                            <div class="skill-progress">
-                                <div class="skill-fill" data-width="75"></div>
-                            </div>
+                            <span class="skill-percentage">75%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-info">
-                                <span>HTML/CSS</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-fill" data-width="85"></div>
-                            </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" data-width="75"></div>
                         </div>
                     </div>
+
                 </div>
-    
-                <!-- Frameworks & Tools -->
-                <div class="skills-category fade-in-delay-2">
-                    <h3>Frameworks & Tools</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <i class="fab fa-node"></i>
-                            <span>Node.js</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-react"></i>
-                            <span>React</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-angular"></i>
-                            <span>Angular</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-database"></i>
-                            <span>MySQL</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-leaf"></i>
-                            <span>MongoDB</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-git-alt"></i>
-                            <span>Git</span>
-                        </div>
-                    </div>
-                </div>
-    
             </div>
+
+
+            <!-- Web Development -->
+            <div class="skills-category fade-in-delay-2">
+                <h3>Web Development</h3>
+
+                <div class="skills-grid">
+                    <div class="skill-item"><i class="fab fa-html5 skill-logo"></i><span>HTML</span></div>
+                    <div class="skill-item"><i class="fab fa-css3-alt skill-logo"></i><span>CSS</span></div>
+                    <div class="skill-item"><i class="fab fa-bootstrap skill-logo"></i><span>Bootstrap</span></div>
+                    <div class="skill-item"><i class="fab fa-react skill-logo"></i><span>React.js</span></div>
+                    <div class="skill-item"><i class="fab fa-node-js skill-logo"></i><span>Node.js / Express.js</span></div>
+                </div>
+            </div>
+
+
+            <!-- Database -->
+            <div class="skills-category fade-in-delay-3">
+                <h3>Database</h3>
+
+                <div class="skills-grid">
+                    <div class="skill-item"><i class="fas fa-database skill-logo"></i><span>MongoDB</span></div>
+                    <div class="skill-item"><i class="fas fa-database skill-logo"></i><span>SQLite</span></div>
+                </div>
+            </div>
+
+
+            <!-- Tools & Technologies -->
+            <div class="skills-category fade-in-delay-4">
+                <h3>Tools & Technologies</h3>
+
+                <div class="skills-grid">
+                    <div class="skill-item"><i class="fab fa-git-alt skill-logo"></i><span>Git & GitHub</span></div>
+                    <div class="skill-item"><i class="fas fa-code skill-logo"></i><span>VS Code</span></div>
+                    <div class="skill-item"><i class="fas fa-tools skill-logo"></i><span>Postman</span></div>
+                    <div class="skill-item"><i class="fas fa-server skill-logo"></i><span>Render</span></div>
+                    <div class="skill-item"><i class="fas fa-rocket skill-logo"></i><span>Vercel</span></div>
+                </div>
+            </div>
+
+
+            <!-- Core Computer Science -->
+            <div class="skills-category fade-in-delay-5">
+                <h3>Core Computer Science</h3>
+
+                <div class="skills-grid">
+                    <div class="skill-item"><i class="fas fa-sitemap skill-logo"></i><span>Data Structures & Algorithms</span></div>
+                    <div class="skill-item"><i class="fas fa-cube skill-logo"></i><span>Object Oriented Programming</span></div>
+                    <div class="skill-item"><i class="fas fa-database skill-logo"></i><span>DBMS</span></div>
+                    <div class="skill-item"><i class="fas fa-desktop skill-logo"></i><span>Operating Systems</span></div>
+                    <div class="skill-item"><i class="fas fa-network-wired skill-logo"></i><span>Computer Networks</span></div>
+                    <div class="skill-item"><i class="fas fa-cogs skill-logo"></i><span>Software Engineering</span></div>
+                </div>
+            </div>
+
+
+            <!-- Soft Skills -->
+            <div class="skills-category fade-in-delay-6">
+                <h3>Soft Skills</h3>
+
+                <div class="skills-grid">
+                    <div class="skill-item"><i class="fas fa-lightbulb skill-logo"></i><span>Problem Solving</span></div>
+                    <div class="skill-item"><i class="fas fa-users skill-logo"></i><span>Team Collaboration</span></div>
+                    <div class="skill-item"><i class="fas fa-comments skill-logo"></i><span>Communication</span></div>
+                    <div class="skill-item"><i class="fas fa-clock skill-logo"></i><span>Time Management</span></div>
+                    <div class="skill-item"><i class="fas fa-adjust skill-logo"></i><span>Adaptability</span></div>
+                    <div class="skill-item"><i class="fas fa-graduation-cap skill-logo"></i><span>Quick Learner</span></div>
+                </div>
+            </div>
+
         </div>
-    </section>
-    
+    </div>
+</section>
+
 
     <!-- Resume Download Section -->
     <section class="resume-download">
@@ -560,9 +743,10 @@
                     </div>
 
                     <div class="social-links">
+                        <a href="https://leetcode.com/u/Charumathibala/" class="social-link"><i class="fas fa-code"></i></a>
                         <a href="https://www.linkedin.com/in/charubala675/" class="social-link"><i class="fab fa-linkedin"></i></a>
                         <a href="https://github.com/CHARUMATHIBALA" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="mailto:charubala675@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                        
                     </div>
                 </div>
 
@@ -574,7 +758,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 CHARUMATHI BALAMURUGAN . All rights reserved.</p>
+            <p>&copy; 2026 CHARUMATHI BALAMURUGAN . All rights reserved.</p>
         </div>
     </footer>
 

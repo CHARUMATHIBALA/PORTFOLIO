@@ -1,27 +1,27 @@
 /* Modern Portfolio Styles - Clean & Attractive Design */
 
 :root {
-  /* Modern Color Palette */
+  /* Modern Color Palette - Light Mode */
   --primary: #10b981;
   --primary-dark: #059669;
   --primary-light: #34d399;
   --secondary: #3b82f6;
   --accent: #8b5cf6;
   
-  /* Neutral Colors */
+  /* Neutral Colors - Light Mode */
   --bg-primary: #ffffff;
   --bg-secondary: #f9fafb;
   --bg-tertiary: #f3f4f6;
   --surface: #ffffff;
   --surface-hover: #f9fafb;
   
-  /* Text Colors */
+  /* Text Colors - Light Mode */
   --text-primary: #111827;
   --text-secondary: #6b7280;
   --text-muted: #9ca3af;
   --text-light: #ffffff;
   
-  /* Border & Shadow */
+  /* Border & Shadow - Light Mode */
   --border: #e5e7eb;
   --border-hover: #d1d5db;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -41,10 +41,47 @@
   --transition-fast: all 0.15s ease;
 }
 
+/* Dark Mode Variables */
+[data-theme="dark"] {
+  /* Modern Color Palette - Dark Mode */
+  --primary: #34d399;
+  --primary-dark: #10b981;
+  --primary-light: #6ee7b7;
+  --secondary: #60a5fa;
+  --accent: #a78bfa;
+  
+  /* Neutral Colors - Dark Mode */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --surface: #1e293b;
+  --surface-hover: #334155;
+  
+  /* Text Colors - Dark Mode */
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-light: #f8fafc;
+  
+  /* Border & Shadow - Dark Mode */
+  --border: #334155;
+  --border-hover: #475569;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 html {
@@ -58,6 +95,56 @@ body {
   background: var(--bg-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  
+  /* Enhanced custom leaf cursor with glow */
+  cursor: url('leaf-cursor-glow.svg') 16 2, auto;
+}
+
+/* Interactive cursor states */
+.cursor-interactive {
+  cursor: url('leaf-cursor-glow.svg') 16 2, pointer !important;
+  transition: transform 0.15s ease !important;
+}
+
+.cursor-disabled {
+  cursor: url('leaf-cursor-glow.svg') 16 2, not-allowed !important;
+}
+
+/* Enhanced hover effects for clickable elements */
+a, button, .btn, .nav-link, .project-link, .social-link, 
+.certification-item, .education-item, .project-card, 
+.club-item, .presentation-item, .modal-close, .sudoku-modal-close,
+.hamburger, .view-cert, .memory-open, .sudoku-open {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+              filter 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+a:hover, button:hover, .btn:hover, .nav-link:hover, 
+.project-link:hover, .social-link:hover, .certification-item:hover,
+.education-item:hover, .project-card:hover, .club-item:hover,
+.presentation-item:hover, .modal-close:hover, .sudoku-modal-close:hover,
+.hamburger:hover, .view-cert:hover, .memory-open:hover, .sudoku-open:hover {
+  transform: scale(1.03);
+  filter: brightness(1.08) saturate(1.1);
+}
+
+/* Special glow effect for primary interactive elements */
+.btn-primary:hover, .nav-link:hover, .project-link:hover {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+/* Cursor trail effect (optional enhancement) */
+.cursor-trail {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease-out;
+  opacity: 0;
 }
 
 /* Background Pattern */
@@ -74,6 +161,15 @@ body::before {
     radial-gradient(circle at 40% 20%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
   pointer-events: none;
   z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+/* Dark mode background pattern */
+[data-theme="dark"] body::before {
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(52, 211, 153, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(96, 165, 250, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(167, 139, 250, 0.05) 0%, transparent 50%);
 }
 
 img {
@@ -111,6 +207,16 @@ a {
   box-shadow: var(--shadow-md);
 }
 
+/* Dark mode navbar */
+[data-theme="dark"] .navbar {
+  background: rgba(15, 23, 42, 0.9);
+  border-bottom-color: var(--border);
+}
+
+[data-theme="dark"] .navbar.scrolled {
+  background: rgba(15, 23, 42, 0.95);
+}
+
 .nav-container {
   display: flex;
   align-items: center;
@@ -118,6 +224,38 @@ a {
   padding: 1rem 1.5rem;
   max-width: 1400px;
   margin: 0 auto;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--text-primary);
+}
+
+.theme-toggle:hover {
+  background: var(--surface-hover);
+  border-color: var(--primary);
+  transform: scale(1.05);
+}
+
+.theme-toggle i {
+  font-size: 1.1rem;
+  transition: var(--transition);
 }
 
 .nav-logo a {
@@ -171,6 +309,15 @@ a {
   cursor: pointer;
   gap: 5px;
   padding: 0.5rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.hamburger:hover {
+  background: var(--surface-hover);
+  border-color: var(--primary);
 }
 
 .hamburger .bar {
@@ -1161,7 +1308,55 @@ section {
   }
 }
 
-/* ========== PRESENTATIONS SECTION ========== */
+/* Modal dark mode adjustments */
+[data-theme="dark"] .modal-dialog {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .modal-header {
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.05), rgba(96, 165, 250, 0.05));
+  border-bottom-color: var(--border);
+}
+
+[data-theme="dark"] .modal-footer {
+  background: var(--surface-hover);
+  border-top-color: var(--border);
+}
+
+/* Skills section dark mode improvements */
+[data-theme="dark"] .skill-fill {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+[data-theme="dark"] .skill-logo {
+  color: var(--primary);
+}
+
+/* Project cards dark mode */
+[data-theme="dark"] .project-card:hover {
+  border-color: var(--primary);
+}
+
+/* Education items dark mode */
+[data-theme="dark"] .education-item:hover {
+  border-color: var(--primary);
+}
+
+/* Certification items dark mode */
+[data-theme="dark"] .certification-item:hover {
+  border-color: var(--primary);
+}
+
+/* Club items dark mode */
+[data-theme="dark"] .club-item:hover {
+  border-color: var(--primary);
+}
+
+/* Presentation items dark mode */
+[data-theme="dark"] .presentation-item:hover {
+  border-color: var(--primary);
+}
 .presentations {
   background: var(--bg-secondary);
 }
@@ -1333,9 +1528,32 @@ section {
 .skill-info {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 0.5rem;
   font-weight: 600;
   color: var(--text-primary);
+  gap: 0.75rem;
+}
+
+.skill-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.skill-percentage {
+  font-weight: 700;
+  color: var(--primary);
+  min-width: 45px;
+  text-align: right;
+}
+
+.skill-logo {
+  font-size: 1.25rem;
+  color: var(--primary);
+  min-width: 24px;
+  text-align: center;
 }
 
 .skill-progress {

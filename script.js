@@ -1,5 +1,52 @@
 // Modern Portfolio Interactions & Enhancements
 
+
+// ========== Dark/Light Mode Toggle ==========
+const initThemeToggle = () => {
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  const html = document.documentElement;
+  
+  // Check for saved theme preference or default to light mode
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const currentTheme = savedTheme || systemPreference;
+  
+  // Apply the initial theme
+  setTheme(currentTheme);
+  
+  // Toggle theme on button click
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      setTheme(newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  }
+  
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+      setTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+  
+  function setTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    if (themeIcon) {
+      themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+  }
+};
+
+// Initialize theme toggle when DOM is loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initThemeToggle);
+} else {
+  initThemeToggle();
+}
+
 // ========== Mobile Navigation Toggle ==========
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -500,6 +547,100 @@ const optimizedScrollHandler = debounce(() => {
 }, 10);
 
 window.addEventListener('scroll', optimizedScrollHandler, { passive: true });
+
+// ========== Custom Leaf Cursor Enhancement ==========
+const initCustomCursor = () => {
+  // Define interactive elements
+  const interactiveElements = [
+    'a', 'button', '.btn', '.nav-link', '.project-link', '.social-link',
+    '.certification-item', '.education-item', '.project-card', 
+    '.club-item', '.presentation-item', '.modal-close', '.sudoku-modal-close',
+    '.hamburger', '.view-cert', '.memory-open', '.sudoku-open'
+  ];
+
+  // Add interactive cursor class to hoverable elements
+  interactiveElements.forEach(selector => {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach(element => {
+      element.addEventListener('mouseenter', function() {
+        this.classList.add('cursor-interactive');
+      });
+      
+      element.addEventListener('mouseleave', function() {
+        this.classList.remove('cursor-interactive');
+      });
+    });
+  });
+
+  // Enhanced fallback: Check if cursor image loads properly
+  const testCursor = new Image();
+  testCursor.src = 'leaf-cursor-glow.svg';
+  testCursor.onerror = function() {
+    console.warn('Enhanced leaf cursor not found, trying fallback cursor');
+    // Try fallback cursor
+    const fallbackCursor = new Image();
+    fallbackCursor.src = 'leaf-cursor.svg';
+    fallbackCursor.onerror = function() {
+      console.warn('Both cursor images not found, using default cursor');
+      document.body.style.cursor = 'auto';
+      
+      // Remove custom cursor classes
+      document.querySelectorAll('.cursor-interactive').forEach(el => {
+        el.classList.remove('cursor-interactive');
+      });
+    };
+    fallbackCursor.onload = function() {
+      console.log('Using fallback leaf cursor');
+      document.body.style.cursor = 'url(\'leaf-cursor.svg\') 16 2, auto';
+      document.querySelectorAll('.cursor-interactive').forEach(el => {
+        el.style.cursor = 'url(\'leaf-cursor.svg\') 16 2, pointer';
+      });
+    };
+  };
+
+  // Optional: Add subtle cursor trail effect for enhanced experience
+  const createCursorTrail = () => {
+    const trail = document.createElement('div');
+    trail.className = 'cursor-trail';
+    document.body.appendChild(trail);
+    
+    let mouseX = 0, mouseY = 0;
+    let trailX = 0, trailY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+    
+    const animateTrail = () => {
+      const dx = mouseX - trailX;
+      const dy = mouseY - trailY;
+      
+      trailX += dx * 0.1;
+      trailY += dy * 0.1;
+      
+      trail.style.left = trailX - 10 + 'px';
+      trail.style.top = trailY - 10 + 'px';
+      trail.style.opacity = Math.abs(dx) > 1 || Math.abs(dy) > 1 ? '0.6' : '0';
+      
+      requestAnimationFrame(animateTrail);
+    };
+    
+    animateTrail();
+  };
+
+  // Only create trail on desktop devices (not touch devices)
+  if (!('ontouchstart' in window)) {
+    createCursorTrail();
+  }
+};
+
+// Initialize custom cursor when DOM is loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCustomCursor);
+} else {
+  initCustomCursor();
+}
 
 // ========== Console Welcome Message ==========
 console.log('%c👋 Welcome to Charumathi\'s Portfolio!', 'font-size: 20px; font-weight: bold; color: #10b981;');

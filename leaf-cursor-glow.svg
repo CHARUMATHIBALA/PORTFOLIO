@@ -1,0 +1,76 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Enhanced glow filter -->
+    <filter id="enhanced-glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="1" result="sharpBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="sharpBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow filter -->
+    <filter id="drop-shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+    
+    <!-- Gradient with more contrast -->
+    <linearGradient id="leafGradientEnhanced" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34d399;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Alternative gradient for dark backgrounds -->
+    <linearGradient id="leafGradientLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6ee7b7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer glow ring -->
+  <ellipse cx="16" cy="16" rx="14" ry="18" 
+           fill="none" 
+           stroke="url(#leafGradientEnhanced)" 
+           stroke-width="0.5" 
+           opacity="0.3"
+           filter="url(#enhanced-glow)"/>
+  
+  <!-- Main leaf shape with enhanced effects -->
+  <path d="M 16 2 
+           C 12 2, 8 4, 6 8
+           C 4 12, 4 16, 6 20
+           C 8 24, 12 28, 16 30
+           C 20 28, 24 24, 26 20
+           C 28 16, 28 12, 26 8
+           C 24 4, 20 2, 16 2
+           Z" 
+        fill="url(#leafGradientEnhanced)" 
+        stroke="#047857" 
+        stroke-width="0.8"
+        filter="url(#enhanced-glow)"
+        opacity="0.95"/>
+  
+  <!-- Enhanced leaf vein -->
+  <path d="M 16 6 L 16 26" 
+        stroke="#047857" 
+        stroke-width="0.8" 
+        opacity="0.7"/>
+  
+  <!-- Enhanced side veins -->
+  <path d="M 16 10 L 12 8 M 16 10 L 20 8
+           M 16 14 L 12 12 M 16 14 L 20 12
+           M 16 18 L 12 20 M 16 18 L 20 20
+           M 16 22 L 13 24 M 16 22 L 19 24" 
+        stroke="#047857" 
+        stroke-width="0.4" 
+        opacity="0.5"/>
+  
+  <!-- Highlight for depth -->
+  <ellipse cx="14" cy="10" rx="3" ry="5" 
+           fill="url(#leafGradientLight)" 
+           opacity="0.4" 
+           transform="rotate(-20 14 10)"/>
+</svg>
